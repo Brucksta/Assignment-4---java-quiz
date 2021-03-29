@@ -7,7 +7,7 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
 var timeEl = document.querySelector('.time')
-]
+
 var secondsLeft = 60;
 
 function setTime() {
@@ -40,33 +40,94 @@ setNextQuestion()
 }
 
 function setNextQuestion() {
+  resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 function showQuestion(question) {
   questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+      if (answer.correct) {
+        button.dataset.correct = answer.correct
+      }
+      button.addEventListener('click', selectAnswer)
+      answerButtonsElement.appendChild(button)
+  })
 }
 
-var questions = [
-  { question:"Which coding language is in charge of making a website look good?",
-  answers: [
-    { text: "CSS",
-  answer2:"HTML",
-  answer3:"Javascript",
-  answer4:"Python",
+function resetState() {
+  //nextButton.classList.add(hide)
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild
+    (answerButtonsElement.firstChild)
+  }
 }
 
-var question2 = {
-  question:"",
-  answer1:"",
-  answer2:"",
-  answer3:"",
-  answer4:"",
+function selectAnswer(e) {
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children).forEach(button => {
+      setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQuestionIndex +1) {
+      setNextQuestion()
+    } else {
+      startButton.innerText = 'Restart'
+      startButton.classList.remove('hide')
+    }
 }
 
-var question3 = {
-
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+} else {
+  element.classList.add('wrong')
+}
 }
 
-var question4 = {
-
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
 }
+
+const questions = [
+  { 
+    question:"Which coding language is in charge of making a website look good?",
+    answers: [
+    { text: "CSS", correct: true },
+    { text: "HTML", correct: false},
+    {text: "Javascript", correct: false},
+    {text: "Python", correct: false},
+        ]
+  },
+  { 
+    question:"Which coding style is considered the skeleton of a website?",
+    answers: [
+    { text: "CSS", correct: false },
+    { text: "HTML", correct: true},
+    {text: "Javascript", correct: false},
+    {text: "Python", correct: false},
+        ]
+  },
+  { 
+    question:"Which coding language makes websites function?",
+    answers: [
+    { text: "CSS", correct: false},
+    { text: "HTML", correct: false},
+    {text: "Windows", correct: false},
+    {text: "Javascript", correct: true},
+        ]
+  },
+  { 
+    question:"Which browser(s) support HTML, CSS and Javascript?",
+    answers: [
+    { text: "Chrome", correct: false},
+    { text: "Explorer", correct: false},
+    {text: "Firefox", correct: false},
+    {text: "All of the above", correct: true},
+        ]
+  }]
