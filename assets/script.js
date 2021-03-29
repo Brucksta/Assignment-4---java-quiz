@@ -30,6 +30,10 @@ startTimer.addEventListener("click", setTime);
 
 //starting game
 startButton.addEventListener('click', startGame)
+answerButtonsElement.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
 
 function startGame() {
 startButton.classList.add('hide')
@@ -38,7 +42,7 @@ currentQuestionIndex = 0
 questionContainerElement.classList.remove('hide')
 setNextQuestion()
 }
-
+//next question
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -59,6 +63,7 @@ function showQuestion(question) {
 
 function resetState() {
   //nextButton.classList.add(hide)
+  clearStatusClass(document.body)
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild
     (answerButtonsElement.firstChild)
@@ -75,7 +80,7 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex +1) {
       setNextQuestion()
     } else {
-      startButton.innerText = 'Restart'
+      startButton.innerText = 'Finished'
       startButton.classList.remove('hide')
     }
 }

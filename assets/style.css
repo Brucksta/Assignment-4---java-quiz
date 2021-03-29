@@ -1,13 +1,4 @@
 
-body {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
 .highscores {
     position: sticky;
     float: left;
@@ -24,14 +15,25 @@ body {
 
 }
 
+.content {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 .container {
-width: 800px;
-max-width: 80%;
+    background-color: silver;
 border-radius: 5px;
 padding: 10px;
 box-sizing: border-box;
-
+justify-content: center;
+align-items: center;
+box-shadow: 0 0 10px 2px;
 }
 
 .btn-grid {
