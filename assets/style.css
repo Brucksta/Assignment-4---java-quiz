@@ -24,17 +24,10 @@ body {
 
 }
 
-.initial-title {
-    text-align: center;
-    flex: auto;
-    padding: 10%;
-
-}
 
 .container {
 width: 800px;
 max-width: 80%;
-border: solid;
 border-radius: 5px;
 padding: 10px;
 box-sizing: border-box;
@@ -52,8 +45,10 @@ box-sizing: border-box;
     border-color: white;
 }
 
-.startbtn {
-
+#start-btn {
+ align-items: center;
+ align-content: center;
+ align-self: center;
 }
 .hide {
     display: none;
