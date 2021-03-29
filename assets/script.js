@@ -1,3 +1,5 @@
+const startTimer = document.getElementById('start-btn')
+var timeEl = document.querySelector('.time')
 var question1 = {
     question:"Which coding language is in charge of making a website look good?",
     answer1:"CSS",
@@ -21,8 +23,9 @@ var question3 = {
 var question4 = {
 
 }
-var timeEl = document.querySelector(".time");
+
 var secondsLeft = 60;
+
 
 function setTime() {
     // Sets interval in variable
@@ -39,5 +42,11 @@ function setTime() {
     }, 1000);
 }
 
+startTimer.addEventListener("click", setTime);
 
-setTime()
+const startButton = document.getElementById('start-btn')
+startButton.addEventListener('click', startGame)
+
+function startGame() {
+console.log('started')
+}

@@ -8,14 +8,24 @@
     <title>Code Quiz</title>
 </head>
 <body>
+    <div class="highscores"><p>Highscores</p></div>
     <div class = "time">
     </div>
-    <div>
+    <div class="initial-title">
         <h1>Coding Quiz Challenge</h1>
         <p>Answer the folling coding questions correctly as quick as you can to earn points! Scores are logged in the Hiscores, see how high you rank!</p>
+        <button id="start-btn">Start Quiz</button>
     </div>   
-    <div>
-        <button>Start Quiz</button>
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">answer 1</button>
+                <button class="btn">answer 2</button>
+                <button class="btn">answer 3</button>
+                <button class="btn">answer 4</button>
+            </div>
+        </div>
     </div>
     <script src="./assets/script.js"></script>
   
